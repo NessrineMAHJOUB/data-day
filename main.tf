@@ -1,6 +1,6 @@
 ### Loads targeted environment
 data "confluent_environment" "environment" {
-  id  = "env-qp0oy6"
+  id  = var.environment_id
 }
 
 ### Load cluster in the target environment
@@ -13,7 +13,7 @@ data "confluent_kafka_cluster" "cluster" {
 
 ### Loads the schema registry cluster in the target environment
 data "confluent_schema_registry_cluster" "schema_registry" {
-  display_name = var.schema_registry_display_name
+  id = "lsrc-0kgow5"
   environment {
     id = data.confluent_environment.environment.id
   }
@@ -27,8 +27,11 @@ module "topic" {
   rest_endpoint              = data.confluent_kafka_cluster.cluster.rest_endpoint
   topics                     = var.topics
 
-  confluent_cloud_api_key    = var.cloud_api_key
-  confluent_cloud_api_secret = var.cloud_api_secret
+  kafka_api_key              = var.kafka_api_key
+  kafka_api_secret           = var.kafka_api_secret
+
+  kafka_rest_endpoint        = data.confluent_kafka_cluster.cluster.rest_endpoint
+  kafka_id                   = data.confluent_kafka_cluster.cluster.id
 }
 
 ################################################################ schema registry

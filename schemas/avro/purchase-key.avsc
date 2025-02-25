@@ -1,0 +1,11 @@
+{
+    "fields": [
+      {
+        "name": "key",
+        "type": "int"
+      }
+    ],
+    "name": "test_key",
+    "namespace": "fr.rs2i.test",
+    "type": "record"
+}

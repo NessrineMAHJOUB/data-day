@@ -17,10 +17,18 @@ variable "rest_endpoint" {
   type = string
 }
 
-variable "confluent_cloud_api_key" {
+variable "kafka_api_key" {
+  type        = string
+}
+
+variable "kafka_api_secret" {
+  type        = string
+}
+
+variable "kafka_rest_endpoint" {
   type = string
 }
 
-variable "confluent_cloud_api_secret" {
+variable "kafka_id" {
   type = string
 }

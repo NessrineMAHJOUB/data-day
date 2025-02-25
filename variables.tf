@@ -1,5 +1,5 @@
 #################################################################### Environment
-variable "environment_name" {
+variable "environment_id" {
   description = "Environment name."
   type        = string
 }
@@ -56,8 +56,14 @@ variable "schema_registry_api_secret" {
   type        = string
   sensitive   = true
 }
-variable "schema_registry_display_name" {
-  description = "The name for the Schema Registry cluster."
+variable "schema_registry_id" {
   type        = string
-  default     = "Stream Governance Package"
+}
+
+variable "kafka_api_key" {
+  type        = string
+}
+
+variable "kafka_api_secret" {
+  type        = string
 }
