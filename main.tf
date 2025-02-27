@@ -13,14 +13,10 @@ data "confluent_kafka_cluster" "cluster" {
 
 ### Loads the schema registry cluster in the target environment
 data "confluent_schema_registry_cluster" "schema_registry" {
-  display_name = var.schema_registry_display_name
-  environment {
-    id = data.confluent_environment.environment.id
-  }
 }
 
 ########################################################################## topic
-module "topic" {
-  source                = "./modules/topic"
-
-}
+# module "topic" {
+#   source                = "./modules/topic"
+  
+# }
